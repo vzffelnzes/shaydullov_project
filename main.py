@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QInputDialog, QFileDialog
 import random
 import sqlite3
+from project_design import Ui_password_generator
 
 
 class MyCustomError(Exception):
@@ -81,10 +82,10 @@ def user_password_complexity(password):
     return "Пароль сложный"
 
 
-class PasswordGenerator(QMainWindow):
+class PasswordGenerator(QMainWindow, Ui_password_generator):
     def __init__(self):
         super().__init__()
-        uic.loadUi('project_design.ui', self)
+        self.setupUi(self)
         self.possible_symbols = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
                                  'R',
                                  'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
