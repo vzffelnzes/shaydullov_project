@@ -41,13 +41,14 @@ def povtors_in_password(password):
 
 
 def check_in_bd(password):
-    con = sqlite3.connect("dist/bd_with_passwords")
+    con = sqlite3.connect("bd_with_passwords")
     cur = con.cursor()
     res = cur.execute("""SELECT dander_passwords FROM passwords WHERE dander_passwords = ?""", (password,)).fetchall()
-    con.close()
     if len(res) == 0:
+        con.close()
         return False
     else:
+        con.close()
         return True
 
 
